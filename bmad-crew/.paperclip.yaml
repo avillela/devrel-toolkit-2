@@ -1,0 +1,207 @@
+# Paperclip portable company package — BMAD Crew (schema: paperclip/v1)
+#
+# One-command setup (provisions all 10 agents WITH skills + reporting hierarchy):
+#   npx paperclipai company import ./ --target existing --company-id <your-company-id> --include agents
+#
+# Per-agent skills and reporting links live in each agents/<slug>/AGENTS.md frontmatter
+# (skills:, reportsTo:). This file (.paperclip.yaml) carries the non-prose extension
+# fields (role, icon, adapter, runtime, budget, metadata) keyed by agent slug, plus the
+# sidebar ordering. COMPANY.md at the package root is required by the importer.
+#
+# After import, attach the crew under your existing CEO:
+#   npx paperclipai agent update cto --reports-to <your-ceo-agent-id>
+
+schema: "paperclip/v1"
+agents:
+  cto:
+    role: "cto"
+    icon: "shield"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  brainstormer:
+    role: "researcher"
+    icon: "lightbulb"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  product-manager:
+    role: "pm"
+    icon: "brain"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  architect:
+    role: "engineer"
+    icon: "cpu"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  story-writer:
+    role: "pm"
+    icon: "code"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  code-reviewer:
+    role: "engineer"
+    icon: "search"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  testing-architect:
+    role: "qa"
+    icon: "shield"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  challenger:
+    role: "researcher"
+    icon: "eye"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  devops-engineer:
+    role: "devops"
+    icon: "wrench"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+  o11y-engineer:
+    role: "engineer"
+    icon: "zap"
+    capabilities: null
+    adapter:
+      type: "claude_local"
+      config: {}
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 0
+        wakeOnOnDemand: true
+        wakeOnAssignment: true
+    permissions: {}
+    budgetMonthlyCents: 1500000
+    metadata:
+      planningArtifacts: "docs/planning"
+      implementationArtifacts: "docs/implementation"
+sidebar:
+  agents:
+    - "cto"
+    - "brainstormer"
+    - "product-manager"
+    - "architect"
+    - "story-writer"
+    - "code-reviewer"
+    - "testing-architect"
+    - "challenger"
+    - "devops-engineer"
+    - "o11y-engineer"
